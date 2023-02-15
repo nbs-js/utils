@@ -1,0 +1,25 @@
+stages:
+  - publish
+
+publish:npm:
+  stage: publish
+  image: node:16-alpine
+  variables:
+    # visit https://www.npmjs.com for create access token
+    NPM_TOKEN:
+      value: ""
+  script:
+    # Create Env File
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .yarnrc
+    # Install App
+    - yarn install --frozen-lockfile --no-progress
+    # Build App
+    - yarn build
+    # Export Static App
+    - yarn publish
+  # Executed only on these condition
+  only:
+    - web
+  # Executor
+  tags:
+    - docker-runner

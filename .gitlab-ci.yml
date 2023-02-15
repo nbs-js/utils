@@ -1,0 +1,7 @@
+stages:
+  - test
+  - publish
+
+include:
+  - local: .gitlab/ci-cd/merge-request.yml
+  - local: .gitlab/ci-cd/publish.yml

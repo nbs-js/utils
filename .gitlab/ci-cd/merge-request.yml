@@ -1,0 +1,18 @@
+stages:
+  - test
+
+test:code-quality:
+  stage: test
+  image: node:16-alpine
+  script:
+    - yarn install --frozen-lockfile --no-progress
+    - yarn audit
+    - yarn format
+    - yarn typecheck
+    - yarn test
+  # Executed only on these condition
+  rules:
+    - if: $CI_SERVER_HOST == "code.nbs.dev" && $CI_PIPELINE_SOURCE == "merge_request_event"
+  # Runner Executor
+  tags:
+    - web-fe
