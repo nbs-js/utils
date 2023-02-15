@@ -1,0 +1,25 @@
+# Build Directories
+/dist
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+**/tsconfig.tsbuildinfo
+**/.eslintcache
+.cache/*
+
+CHANGELOG.md
+
+rollup.config.js
+babel.config.mjs
+
+# test
+test/*
+coverage
