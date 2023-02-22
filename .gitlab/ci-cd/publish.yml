@@ -10,7 +10,7 @@ publish:npm:
       value: ""
   script:
     # Create Env File
-    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .yarnrc
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     # Install App
     - yarn install --frozen-lockfile --no-progress
     # Build App
