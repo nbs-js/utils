@@ -16,7 +16,7 @@ publish:npm:
     # Build App
     - yarn build
     # Export Static App
-    - yarn publish
+    - yarn publish --access public --non-interactive
   # Executed only on these condition
   only:
     - web
