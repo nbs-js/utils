@@ -6,3 +6,5 @@ export {
   tailingSlash,
   htmlToString,
 } from "./formatter/string";
+export { isObjEmpty } from "./utils/object";
+export { arraySumValue } from "./utils/array";
