@@ -1,11 +1,16 @@
-const rollupTypescript = require("@rollup/plugin-typescript")
-const peerDepsExternal = require("rollup-plugin-peer-deps-external")
-// const rollupPluginDts = require("rollup-plugin-dts")
+import rollupTypescript from "@rollup/plugin-typescript";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import dts from "rollup-plugin-dts";
 
-module.exports = [
+export default [
   {
     input: "./src/main.ts",
     output: [
+      {
+        file: "dist/index.d.ts",
+        format: "es",
+        sourcemap: true,
+      },
       {
         file: "dist/index.js",
         format: "cjs",
@@ -38,16 +43,8 @@ module.exports = [
         format: "amd",
         sourcemap: true,
         compact: true,
-      }
+      },
     ],
-    plugins: [peerDepsExternal(), rollupTypescript()],
+    plugins: [dts(), peerDepsExternal(), rollupTypescript()],
   },
-  // {
-  //   input: './src/main.ts',
-  //   output: {
-  //     file: "dist/index.d.ts",
-  //     format: "es"
-  //   },
-  //   plugins: [dts]
-  // }
-]
+];
